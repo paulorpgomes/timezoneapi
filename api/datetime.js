@@ -31,12 +31,11 @@ export default function handler(request, response) {
       }
     }
   
-    // Para o dia da semana e o nome do mês, usamos uma data localizada.
+    
     const localizedForNames = new Date(now.toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
     const dayOfWeek = localizedForNames.getDay();
   
-    // Millis: getMilliseconds() pega os milissegundos do objeto Date 'now', que está no fuso horário do servidor Vercel.
-    // Para milissegundos EXATOS no fuso de SP, a lógica seria mais complexa (e muitas vezes não é estritamente necessário).
+    
     const millis = now.getMilliseconds();
   
     const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -55,11 +54,10 @@ export default function handler(request, response) {
       minutes: minutes,
       seconds: seconds,
       millis: millis,
-      fulldate: localizedForNames.toString(), // toString() pode variar, mas replica o comportamento original.
+      fulldate: localizedForNames.toString(),
       timezone: 'America/Sao_Paulo',
       status: 'ok'
     };
   
-    // Retorna a resposta JSON com status 200 (OK)
     response.status(200).json(result);
   }

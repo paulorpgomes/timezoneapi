@@ -43,7 +43,6 @@ export default function handler(request, response) {
                         "July", "August", "September", "October", "November", "December"];
   
     const result = {
-      info: "Karoo Alterdata",
       dayofweek: dayOfWeek,
       dayofweekName: dayNames[dayOfWeek],
       day: day,
